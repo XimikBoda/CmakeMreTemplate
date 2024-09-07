@@ -14,6 +14,12 @@ set_target_properties(${PROJECT_NAME} PROPERTIES OUT_NAME "${APP_NAME}")
 set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".vxp")
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
 
+if(BACKGROUND)
+   set(TB 1)
+else()
+   set(TB 0)
+endif()
+
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
    COMMAND "${TinyMRESDK}/bin/PackApp.exe" 
                -a "$<TARGET_FILE:core>" 
@@ -22,4 +28,5 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
                -tr "${RAM}" 
                -tn "${APP_NAME}"
                -tdn "${DEVELOPER_NAME}"
+               -tb "${TB}"
 )
