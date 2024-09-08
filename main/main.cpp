@@ -29,8 +29,6 @@ void vm_main(void) {
 	vm_reg_keyboard_callback(handle_keyevt);
 	vm_reg_pen_callback(handle_penevt);
 
-	//vm_res_init();
-
 	VMINT size = 0;
 	VMUINT8* res = vm_load_resource("demo.png", &size);
 	demo_canvas = (VMUINT8*)vm_graphic_load_image(res, size);
@@ -64,8 +62,6 @@ void handle_sysevt(VMINT message, VMINT param) {
 			vm_graphic_delete_layer(layer_hdl[0]);
 			layer_hdl[0] = -1;
 		}
-		
-		vm_res_deinit();
 		break;
 	}
 #else
@@ -91,8 +87,6 @@ void handle_sysevt(VMINT message, VMINT param) {
 	case VM_MSG_QUIT:
 		if( layer_hdl[0] != -1 )
 			vm_graphic_delete_layer(layer_hdl[0]);
-		
-		vm_res_deinit();
 		break;	
 	}
 #endif

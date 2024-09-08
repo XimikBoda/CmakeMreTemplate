@@ -58,17 +58,17 @@ set(MRE_SDK "$ENV{MRE_SDK}")
 # -fdata-sections       Place each data item into its own section in the output file.
 # -fomit-frame-pointer  Omit the frame pointer in functions that don’t need one.
 # -mabi=aapcs           Defines enums to be a variable sized type.
-set(OBJECT_GEN_FLAGS "-fpic -march=armv5te -fvisibility=hidden -mlittle-endian -fdata-sections -ffunction-sections -fno-use-cxa-atexit -fno-threadsafe-statics -mthumb -I \"${MRE_SDK}/include\"")
+set(OBJECT_GEN_FLAGS "-fpic -march=armv5te -fvisibility=hidden -mlittle-endian -fdata-sections -ffunction-sections -mthumb -D__MRE_COMPILER_GCC__")
 
-set(CMAKE_C_FLAGS   "${OBJECT_GEN_FLAGS} -std=gnu99 -D__MRE_COMPILER_GCC__ " CACHE INTERNAL "C Compiler options")
-set(CMAKE_CXX_FLAGS "${OBJECT_GEN_FLAGS} -std=c++11 -fno-threadsafe-statics -fno-exceptions -fno-non-call-exceptions " CACHE INTERNAL "C++ Compiler options")
+set(CMAKE_C_FLAGS   "${OBJECT_GEN_FLAGS} -std=gnu99  " CACHE INTERNAL "C Compiler options")
+set(CMAKE_CXX_FLAGS "${OBJECT_GEN_FLAGS} -std=c++11 -fno-threadsafe-statics -fno-exceptions -fno-non-call-exceptions -fno-use-cxa-atexit -fno-threadsafe-statics " CACHE INTERNAL "C++ Compiler options")
 set(CMAKE_ASM_FLAGS "${OBJECT_GEN_FLAGS} -x assembler-with-cpp " CACHE INTERNAL "ASM Compiler options")
 
 
 # -Wl,--gc-sections     Perform the dead code elimination.
 # --specs=nano.specs    Link with newlib-nano.
 # --specs=nosys.specs   No syscalls, provide empty implementations for the POSIX system calls.
-set(CMAKE_EXE_LINKER_FLAGS "-Wl,--gc-sections --specs=nano.specs --specs=nosys.specs -mthumb -mabi=aapcs -Wl,-Map=${CMAKE_PROJECT_NAME}.map" CACHE INTERNAL "Linker options")
+set(CMAKE_EXE_LINKER_FLAGS "-Wl,--gc-sections --specs=nosys.specs -mthumb -fpic -fpcc-struct-return -pie -Wl,-Map=${CMAKE_PROJECT_NAME}.map" CACHE INTERNAL "Linker options")
 
 #---------------------------------------------------------------------------------------
 # Set debug/release build configuration Options
