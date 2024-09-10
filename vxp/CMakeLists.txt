@@ -21,7 +21,7 @@ else()
 endif()
 
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-   COMMAND "${TinyMRESDK}/bin/PackApp.exe" 
+   COMMAND "${TinyMRESDK}/bin/PackApp" 
                -a "$<TARGET_FILE:core>" 
                -r "$<TARGET_FILE:resourses>" 
                -o "$<TARGET_FILE:${PROJECT_NAME}>" 
@@ -29,4 +29,5 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
                -tn "${APP_NAME}"
                -tdn "${DEVELOPER_NAME}"
                -tb "${TB}"
+               -ti "${IMSI}"
 )

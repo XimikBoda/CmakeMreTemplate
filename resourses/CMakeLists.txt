@@ -20,7 +20,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
 
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
-   COMMAND "${TinyMRESDK}/bin/PackRes.exe" 
+   COMMAND "${TinyMRESDK}/bin/PackRes" 
                -o "$<TARGET_FILE:${PROJECT_NAME}>"
                -f ${RESOURSES_FILES}
                --empty-logo
