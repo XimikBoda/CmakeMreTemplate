@@ -1,5 +1,7 @@
 # Template for build MRE .vxp app by cmake
 
+![image](extra/On_Nokia_220.jpg)![image](extra/On_MoDis.png)![image](extra/On_MREmu.png)
+
 ## What are the CMake projects in this repo about?
 
 |Folder|Description|Type|
@@ -57,3 +59,11 @@ Just copy `build/vxp/vxp.vxp` to sd-card
 You can use `run_in_MoDis` target (right click and `Set as Startup Project`), but if you want to debug it, manualy change *Command* (in project properties) to MoDis.exe.
 
 Or you can manualy copy `vs/vxp/vxp.vc.vxp` to MoDis.
+
+## How to create own project
+
+- Copy this to new folder.
+- Change app/developer name and other settings in base `CMakeList.txt`.
+- Add you .cpp, .c and .h to `main/CMakeList.txt`. 
+- Copy resourses to `resourses/` and add it to `resourses/CMakeList.txt`.
+- If you want to add CMake liblary, add it as static lib (you can use `set(BUILD_SHARED_LIBS FALSE)`)
