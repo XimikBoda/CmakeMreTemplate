@@ -39,4 +39,5 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
                -tdn "${DEVELOPER_NAME}"
                -tb "${TB}"
                -ti "${IMSI}"
+               -tapi "${API}"
 )
