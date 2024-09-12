@@ -28,7 +28,7 @@
 ```
 mkdir build
 cd build
-cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain-arm-none-eabi.cmake -DMRE_SDK=path/to/mre/sdk -DTinyMRESDK=path/to/tiny/mre/sdk -G "MinGW Makefiles" ..
+cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain-arm-none-eabi.cmake -DMRE_SDK=path/to/mre/sdk -DTinyMRESDK=path/to/tiny/mre/sdk -DCMAKE_BUILD_TYPE=Release -G "MinGW Makefiles" ..
 make
 ```
 
