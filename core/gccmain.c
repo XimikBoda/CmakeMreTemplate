@@ -33,16 +33,6 @@ void free(void* ptr)
 	vm_free(ptr);
 }
 
-void trace_on(){
-	typedef void (*trace_on_t)();
-	static trace_on_t trace_on_p = (trace_on_t)0xFFFFFFFF;
-	if(trace_on_p == (trace_on_t)0xFFFFFFFF)
-		trace_on_p = (trace_on_t)vm_get_sym_entry("trace_on");
-	if(trace_on_p != 0 && trace_on_p != (trace_on_t)0xFFFFFFFF)
-		trace_on_p();
-	return;
-}
-
 void gcc_entry(unsigned int entry, unsigned int init_array_start, unsigned int count)
 {
 	unsigned int i;

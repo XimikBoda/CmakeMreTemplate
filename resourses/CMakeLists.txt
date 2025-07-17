@@ -1,4 +1,4 @@
-set(PROJECT_NAME "resourses")
+set(TARGET_NAME "resourses")
 
 set(RESOURSES_FILES
       demo.png
@@ -11,15 +11,15 @@ add_custom_command( # repack triger
    DEPENDS ${RESOURSES_FILES}
 )
 
-add_library(${PROJECT_NAME} STATIC "null.cpp")
+add_library(${TARGET_NAME} STATIC "null.cpp")
 
-set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".res")
-set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
+set_target_properties(${TARGET_NAME} PROPERTIES SUFFIX ".res")
+set_target_properties(${TARGET_NAME} PROPERTIES PREFIX "")
 
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
    COMMAND "${TinyMRESDK}/bin/PackRes" 
-               -o "$<TARGET_FILE:${PROJECT_NAME}>"
+               -o "$<TARGET_FILE:${TARGET_NAME}>"
                -f ${RESOURSES_FILES}
                --empty-logo
 )

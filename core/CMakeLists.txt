@@ -1,15 +1,15 @@
-set(PROJECT_NAME "core")
+set(TARGET_NAME "core")
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL Generic) # For Phone
-    add_executable (${PROJECT_NAME} "gccmain.c")
+    add_executable (${TARGET_NAME} "gccmain.c")
 
-    target_link_libraries(${PROJECT_NAME} "-T ${PROJECT_SOURCE_DIR}/core/scat.ld")
+    target_link_libraries(${TARGET_NAME} "-T ${CMAKE_CURRENT_SOURCE_DIR}/scat.ld")
     
-    set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".axf")
+    set_target_properties(${TARGET_NAME} PROPERTIES SUFFIX ".axf")
 elseif(WIN32) # For MoDis
-    add_library(${PROJECT_NAME} SHARED "null.cpp" "dll.def")
+    add_library(${TARGET_NAME} SHARED "null.cpp" "dll.def")
 else()
     message(FATAL_ERROR "Wrong target system")
 endif()
 
-target_link_libraries(${PROJECT_NAME} main mreapi)
+target_link_libraries(${TARGET_NAME} main mreapi)
