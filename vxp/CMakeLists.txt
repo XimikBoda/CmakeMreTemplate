@@ -1,5 +1,3 @@
-cmake_minimum_required (VERSION 3.8)
-
 set(PROJECT_NAME "vxp")
 
 add_custom_command( # repack triger 
