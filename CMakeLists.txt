@@ -9,7 +9,7 @@ set(IMSI "1234567890" CACHE STRING "Imsi of first SIM-card")
 set(API "File SIM card ProMng") #Api for app, 
 set(APPID "0") #App id, special values: -1 is personal (imsi), 0 is in developing
 set(CERTID "1" CACHE STRING "") #Cert id use from you cert, 1 is personal (imsi)
-set(CERT "." CACHE STRING "Path to cert, used when APPID!=-1 and CERTID!=1")
+set(CERT "none" CACHE STRING "Path to cert, used when APPID!=-1 and CERTID!=1")
 option(BACKGROUND "App can work background" OFF)
 
 set(MRE_SDK "$ENV{MRE_SDK}" CACHE STRING "MRE SDK dir")
@@ -19,7 +19,7 @@ if(BACKGROUND)
     add_definitions(-DSUPPORT_BG)
 endif()
 
-include(cmake/AddMreexec.cmake)
+include(cmake/MreUtils.cmake)
 
 add_subdirectory(resourses)
 add_subdirectory(mreapi)

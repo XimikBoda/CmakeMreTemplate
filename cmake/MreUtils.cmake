@@ -1,1 +1,2 @@
-include(AddMreExec.cmake)
+include(cmake/AddMreExec.cmake)
+include(cmake/AddPackVxp.cmake)
