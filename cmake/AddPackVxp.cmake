@@ -25,6 +25,7 @@ function(add_pack_vxp TARGET_NAME)
     add_library(${TARGET_NAME} STATIC ${NULL_CPP} )
 
     set_target_properties(${TARGET_NAME} PROPERTIES
+        OUTPUT_NAME "${ARG_APP_NAME}"
         SUFFIX "${SUFFIX}"
         PREFIX ""
     )
