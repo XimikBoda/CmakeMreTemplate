@@ -6,7 +6,7 @@ set(APP_NAME "Demo")
 set(DEVELOPER_NAME "YouName")
 set(RAM "500") #Ram requirement (in kb)
 set(IMSI "1234567890" CACHE STRING "Imsi of first SIM-card")
-set(API "File SIM card ProMng") #Api for app, 
+set(API "File SIM_card ProMng") #Api for app, 
 set(APPID "0") #App id, special values: -1 is personal (imsi), 0 is in developing
 set(CERTID "1" CACHE STRING "") #Cert id use from you cert, 1 is personal (imsi)
 set(CERT "none" CACHE STRING "Path to cert, used when APPID!=-1 and CERTID!=1")
@@ -27,4 +27,4 @@ add_subdirectory(run)
 
 add_subdirectory(main)
 
-#Full list: Audio Camera Call TCP File HTTP Sensor SIM card Record SMS(person) SMS(SP) BitStream Contact LBS MMS ProMng SMSMng Video XML Sec SysStorage Payment BT PUSH UDP SysFile
+#Full api list: Audio Camera Call TCP File HTTP Sensor SIM_card Record SMS_person SMS_SP BitStream Contact LBS MMS ProMng SMSMng Video XML Sec SysStorage Payment BT PUSH UDP SysFile
