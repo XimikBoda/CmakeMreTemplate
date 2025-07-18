@@ -3,7 +3,7 @@ set(TARGET_NAME "vxp")
 add_custom_command( # repack triger 
    OUTPUT null.cpp
    COMMAND ${CMAKE_COMMAND} -E touch null.cpp
-   DEPENDS core resourses
+   DEPENDS main resourses
 )
 
 add_library(${TARGET_NAME} STATIC "null.cpp")
@@ -29,7 +29,7 @@ endif()
 
 add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
    COMMAND "${TinyMRESDK}/bin/PackApp" 
-               -a "$<TARGET_FILE:core>" 
+               -a "$<TARGET_FILE:main>" 
                -r "$<TARGET_FILE:resourses>" 
                -o "$<TARGET_FILE:${TARGET_NAME}>" 
                -tr "${RAM}" 
