@@ -10,6 +10,7 @@ function(add_mre_exec TARGET_NAME)
 
         target_link_options(${TARGET_NAME} PRIVATE 
             "-T${COMMON_DIR}/scat.ld"
+            "-Wl,--no-warn-rwx-segment"
         )
 
         set_target_properties(${TARGET_NAME} PROPERTIES SUFFIX ".axf")
