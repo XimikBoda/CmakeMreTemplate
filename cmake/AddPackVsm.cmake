@@ -1,4 +1,4 @@
-function(add_pack_vxp TARGET_NAME)
+function(add_pack_vsm TARGET_NAME)
     cmake_parse_arguments(ARG 
         ""
         "MREEXEC;RESOURSES;APP_NAME;DEVELOPER_NAME;APPID;BACKGROUND;API;RAM;CERT;CERTID;IMSI;AGGS"
@@ -7,11 +7,11 @@ function(add_pack_vxp TARGET_NAME)
     )
 
     if(${CMAKE_SYSTEM_NAME} STREQUAL Generic)
-        set(SUFFIX ".vxp")
+        set(SUFFIX ".vsm")
     elseif(WIN32)
-        set(SUFFIX ".vc.vxp")
+        set(SUFFIX ".dlm")
     else()
-        message(FATAL_ERROR "Unsupported target system for VXP packing.")
+        message(FATAL_ERROR "Unsupported target system for VSM packing.")
     endif()
 
     set(NULL_CPP "null_${TARGET_NAME}.cpp")
@@ -69,6 +69,7 @@ function(add_pack_vxp TARGET_NAME)
             -tb "${TB}"
             -ti "${_IMSI}"
             -tapi "${ARG_API}"
+            -ty "vsm"
             ${ARG_AGGS}    
         VERBATIM
     )
