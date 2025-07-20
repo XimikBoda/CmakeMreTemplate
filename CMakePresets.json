@@ -1,0 +1,32 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "arm-release",
+      "displayName": "ARM Release (for phone)",
+      "description": "Release build for phone, binary getting smaller and faster",
+      "generator": "MinGW Makefiles",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/cmake/toolchain-arm-none-eabi.cmake",
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "arm-debug",
+      "displayName": "ARM Debug (for phone)",
+      "description": "Debug build for phone, used for analysis problems",
+      "generator": "MinGW Makefiles",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/cmake/toolchain-arm-none-eabi.cmake",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "win32",
+      "displayName": "win32",
+      "description": "Build for MoDis/MREmu",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "Win32"
+    }
+  ]
+}
