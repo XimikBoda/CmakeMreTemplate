@@ -4,7 +4,7 @@ set(SOURCES main.cpp)
 
 add_exec_vxp(${TARGET_NAME} 
     SRCS ${SOURCES}
-    RESOURSES resourses
+    RESOURCES resources
     APP_NAME "${APP_NAME}"
     APPID "${APPID}"
     BACKGROUND ${BACKGROUND}

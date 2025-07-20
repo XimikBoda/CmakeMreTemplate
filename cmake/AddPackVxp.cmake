@@ -1,7 +1,7 @@
 function(add_pack_vxp TARGET_NAME)
     cmake_parse_arguments(ARG 
         ""
-        "MREEXEC;RESOURSES;APP_NAME;DEVELOPER_NAME;APPID;BACKGROUND;API;RAM;CERT;CERTID;IMSI;AGGS"
+        "MREEXEC;RESOURCES;APP_NAME;DEVELOPER_NAME;APPID;BACKGROUND;API;RAM;CERT;CERTID;IMSI;AGGS"
         ""
         ${ARGN}
     )
@@ -19,7 +19,7 @@ function(add_pack_vxp TARGET_NAME)
     add_custom_command( # repack triger
         OUTPUT ${NULL_CPP} 
         COMMAND ${CMAKE_COMMAND} -E touch ${NULL_CPP} 
-        DEPENDS ${ARG_MREEXEC} ${ARG_RESOURSES}
+        DEPENDS ${ARG_MREEXEC} ${ARG_RESOURCES}
     )
 
     add_library(${TARGET_NAME} STATIC ${NULL_CPP} )
@@ -59,7 +59,7 @@ function(add_pack_vxp TARGET_NAME)
     add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
         COMMAND "${TinyMRESDK}/bin/PackApp"
             -a "$<TARGET_FILE:${ARG_MREEXEC}>"
-            -r "$<TARGET_FILE:${ARG_RESOURSES}>"
+            -r "$<TARGET_FILE:${ARG_RESOURCES}>"
             -o "$<TARGET_FILE:${TARGET_NAME}>"
             -tr "${ARG_RAM}"
             -tn "${ARG_APP_NAME}"

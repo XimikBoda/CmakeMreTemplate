@@ -21,7 +21,7 @@ endif()
 
 include(cmake/MreUtils.cmake)
 
-add_subdirectory(resourses)
+add_subdirectory(resources)
 add_subdirectory(mreapi)
 add_subdirectory(run)
 

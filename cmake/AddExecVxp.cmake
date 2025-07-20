@@ -1,7 +1,7 @@
 function(add_exec_vxp TARGET_NAME)
     cmake_parse_arguments(ARG
         ""
-        "RESOURSES;APP_NAME;APPID;API;RAM;BACKGROUND;CERT;CERTID;IMSI;DEVELOPER_NAME;AGGS"
+        "RESOURCES;APP_NAME;APPID;API;RAM;BACKGROUND;CERT;CERTID;IMSI;DEVELOPER_NAME;AGGS"
         "SRCS"
         ${ARGN}
     )
@@ -10,7 +10,7 @@ function(add_exec_vxp TARGET_NAME)
 
     add_pack_vxp("${TARGET_NAME}_vxp"
         MREEXEC     ${TARGET_NAME}
-        RESOURSES   ${ARG_RESOURSES}
+        RESOURCES   ${ARG_RESOURCES}
         APP_NAME    "${ARG_APP_NAME}"
         APPID       "${ARG_APPID}"
         API         "${ARG_API}"

@@ -10,7 +10,7 @@
 |mreapi|A single point for the entire MRE API|Static liblary|
 |main|Main code, linking and packing vxp|vxp|
 |common|Files for compiling/linking apps|.|
-|resourses|A resourses pack target (there you can add own resourses)|Resourses (.res)|
+|resources|A resources pack target (there you can add own resources)|Resources (.res)|
 |run/run_in_MoDis|Target for auto copy .vc.vxp to MoDis and run it (only Windows)|bat|
 
 ## Requirements to build
@@ -66,7 +66,7 @@ Or you can manualy copy `vs/vxp/(App_name).vc.vxp` to MoDis.
 - Copy this to new folder.
 - Change app/developer name and other settings in base `CMakeList.txt`.
 - Add you .cpp, .c and .h to `main/CMakeList.txt`. 
-- Copy resourses to `resourses/` and add it to `resourses/CMakeList.txt`.
+- Copy resources to `resources/` and add it to `resources/CMakeList.txt`.
 - If you want to add CMake liblary, add it as static lib (you can use `set(BUILD_SHARED_LIBS FALSE)`)
 
 ## Cmake functions
@@ -75,7 +75,7 @@ Or you can manualy copy `vs/vxp/(App_name).vc.vxp` to MoDis.
 ```
 add_exec_vxp($(TARGET_NAME)
     SRCS ${SOURCES}                     # sources list
-    RESOURSES ${RESOURCES_TARGET}       # resourses target
+    RESOURCES ${RESOURCES_TARGET}       # resources target
     APP_NAME "${APP_NAME}"              # app name, used and for tags and as output file name
     APPID "${APPID}"                    # id for app (int32), -1 mean personal license, 0 in developen
     BACKGROUND ${BACKGROUND}            # can app work in backround (not all phones support)
@@ -96,7 +96,7 @@ Create vxp from sources and resource target. It call `add_mre_exec` and `add_pac
 ```
 add_exec_vsm($(TARGET_NAME)
     SRCS ${SOURCES}                     # sources list
-    RESOURSES ${RESOURCES_TARGET}       # resourses target
+    RESOURCES ${RESOURCES_TARGET}       # resources target
     APP_NAME "${APP_NAME}"              # library name, used and for tags and as 
     ...                                 # similar as on add_exec_vxp
 )
@@ -111,7 +111,7 @@ Link general exec (must has vm_main entry point).
 ```
 add_pack_vxp($(TARGET_NAME)
     MREEXEC ${EXEC_TARGET_NAME}
-    RESOURSES ${RESOURCES_TARGET_NAME}
+    RESOURCES ${RESOURCES_TARGET_NAME}
     APP_NAME "${APP_NAME}"
     ...                                 # similar as on add_exec_vxp
 )
@@ -122,7 +122,7 @@ Pack vxp from general exec
 ```
 add_pack_vxp($(TARGET_NAME)
     MREEXEC ${EXEC_TARGET_NAME}
-    RESOURSES ${RESOURCES_TARGET_NAME}
+    RESOURCES ${RESOURCES_TARGET_NAME}
     APP_NAME "${APP_NAME}"
     ...                                 # similar as on add_exec_vxp
 )
