@@ -15,5 +15,6 @@ set(MODIS_PATH "${MRE_SDK}/models/Model01_QVGA_MRE3.0/")
 
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
    COMMAND ${CMAKE_COMMAND} -E copy "$<TARGET_FILE:main_vxp>" "${MODIS_PATH}/WIN32FS/DRIVE_E/mre/${APP_NAME}.vc.vxp"
-   COMMAND echo "${MODIS_PATH}/MoDIS/Release/MoDIS.exe" > "$<TARGET_FILE:${PROJECT_NAME}>" 
+   COMMAND echo set __COMPAT_LAYER=RUNASINVOKER > "$<TARGET_FILE:${PROJECT_NAME}>" 
+   COMMAND echo "${MODIS_PATH}/MoDIS/Release/MoDIS.exe" >> "$<TARGET_FILE:${PROJECT_NAME}>"  
 )
